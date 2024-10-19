@@ -50,4 +50,15 @@ import java.util.List;
         jobService.deleteJob(postId);
     }
 
+    @GetMapping("load")
+    public String load() {
+        jobService.load();
+        return "success";
+    }
+
+    @GetMapping("jobPosts/keyword/{keyword}")
+    public List<JobPost> searchByKeyword(@PathVariable("keyword") String keyword) {
+        System.out.println("debug test");
+        return jobService.search(keyword);
+    }
 }
